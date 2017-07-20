@@ -282,10 +282,10 @@ isSpaceChar :: Word8 -> Bool
 isSpaceChar c = c == 32 || (c <= 10 && c >= 9) || c == 13
 {-# INLINE isSpaceChar #-}
 
--- | Is the character a valid tag name constituent?
+-- | Is the character a valid tag name constituent? (a-z A-Z _ - : 0-9)
 isNameChar :: Word8 -> Bool
 isNameChar c =
-  (c >= 97 && c <= 122) || (c >= 65 && c <= 90) || c == 95 || c == 45 || c == 58
+  (c >= 97 && c <= 122) || (c >= 65 && c <= 90) || c == 95 || c == 45 || c == 58 ||  (c>=48 && c<=57)
 {-# INLINE isNameChar #-}
 
 -- | Char for '\''.
